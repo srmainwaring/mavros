@@ -65,6 +65,7 @@ include_directories(
 )
 
 include_directories(
+  # ${eigen_stl_containers_INCLUDE_DIRS}
   ${mavlink_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
   ${GeographicLib_INCLUDE_DIRS}
@@ -154,6 +155,7 @@ ament_target_dependencies(mavros_extras_plugins
   Eigen3
   yaml_cpp_vendor
 )
+target_link_libraries(mavros_extras_plugins ${GEOGRAPHICLIB_LIBRARIES})
 pluginlib_export_plugin_description_file(mavros mavros_plugins.xml)
 
 add_library(mavros_extras SHARED
@@ -173,6 +175,7 @@ ament_target_dependencies(mavros_extras
   yaml_cpp_vendor
   urdf
 )
+target_link_libraries(mavros_extras ${GEOGRAPHICLIB_LIBRARIES})
 rclcpp_components_register_node(mavros_extras PLUGIN "mavros::extras::ServoStatePublisher" EXECUTABLE servo_state_publisher)
 
 # yaml-cpp is required for Jazzy and newer
