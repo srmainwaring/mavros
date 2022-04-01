@@ -92,7 +92,7 @@ public:
   /**
    * @brief Return vector of MAVLink message subscriptions (handlers)
    */
-  virtual Subscriptions get_subscriptions() = 0;
+  virtual Subscriptions get_subscriptions() { return std::vector<HandlerInfo>(); }
 
   virtual rclcpp::Node::SharedPtr get_node() const
   {

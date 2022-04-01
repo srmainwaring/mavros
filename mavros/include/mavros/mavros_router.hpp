@@ -100,17 +100,17 @@ public:
   std::set<addr_t> remote_addrs;       // remotes that we heard there
   std::set<addr_t> stale_addrs;        // temporary storage for stale remote addrs
 
-  virtual bool is_open() = 0;
-  virtual std::pair<bool, std::string> open() = 0;
-  virtual void close() = 0;
+  virtual bool is_open() { return false; }
+  virtual std::pair<bool, std::string> open() { return  std::pair<bool, std::string>(); }
+  virtual void close() {}
 
   virtual void send_message(
-    const mavlink_message_t * msg, const Framing framing = Framing::ok,
-    id_t src_id = 0) = 0;
-  virtual void recv_message(const mavlink_message_t * msg, const Framing framing = Framing::ok);
+    const mavlink_message_t * /*msg*/, const Framing /*framing = Framing::ok*/,
+    id_t /*src_id = 0*/) {}
+  virtual void recv_message(const mavlink_message_t * /*msg*/, const Framing /*framing = Framing::ok*/);
 
   virtual std::string diag_name();
-  virtual void diag_run(diagnostic_updater::DiagnosticStatusWrapper & stat) = 0;
+  virtual void diag_run(diagnostic_updater::DiagnosticStatusWrapper & /*stat*/) {}
 };
 
 /**
