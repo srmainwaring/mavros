@@ -151,6 +151,10 @@ ament_target_dependencies(mavros_extras_plugins
 )
 target_link_libraries(mavros_extras_plugins ${GeographicLib_LIBRARIES})
 pluginlib_export_plugin_description_file(mavros mavros_plugins.xml)
+target_include_directories(mavros_extras_plugins
+  PUBLIC
+    "/Users/rhys/Code/ros2/humble/ros2-mavros/install/mavros_msgs/include"
+)
 
 add_library(mavros_extras SHARED
   # [[[cog:
@@ -171,6 +175,10 @@ ament_target_dependencies(mavros_extras
 )
 target_link_libraries(mavros_extras ${GeographicLib_LIBRARIES})
 rclcpp_components_register_node(mavros_extras PLUGIN "mavros::extras::ServoStatePublisher" EXECUTABLE servo_state_publisher)
+target_include_directories(mavros_extras_plugins
+  PUBLIC
+    "/Users/rhys/Code/ros2/humble/ros2-mavros/install/mavros_msgs/include"
+)
 
 # yaml-cpp is required for Jazzy and newer
 if(rclcpp_VERSION VERSION_GREATER_EQUAL 22.0.0)
