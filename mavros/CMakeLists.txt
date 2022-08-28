@@ -34,11 +34,6 @@ find_package(console_bridge REQUIRED)
 
 find_package(eigen3_cmake_module REQUIRED)
 find_package(Eigen3 REQUIRED)
-
-## Find GeographicLib
-# Append to CMAKE_MODULE_PATH since debian/ubuntu installs
-# FindGeographicLib.cmake in a nonstand location
-set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};/usr/share/cmake/geographiclib")
 find_package(GeographicLib REQUIRED)
 
 find_package(angles REQUIRED)
@@ -173,7 +168,6 @@ ament_target_dependencies(mavros_plugins
   std_msgs
   std_srvs
   sensor_msgs
-  pluginlib
   nav_msgs
   trajectory_msgs
   rclcpp
