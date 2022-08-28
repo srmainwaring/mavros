@@ -92,6 +92,8 @@ public:
     remote_addrs.emplace(broadcast_addr);
   }
 
+  virtual ~Endpoint() = default;
+
   std::shared_ptr<Router> parent;
 
   uint32_t id;                         // id of the endpoint
