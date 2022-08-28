@@ -121,6 +121,10 @@ ament_target_dependencies(mavros
 )
 target_link_libraries(mavros ${GeographicLib_LIBRARIES})
 rclcpp_components_register_nodes(mavros "mavros::router::Router" "mavros::uas::UAS")
+target_include_directories(mavros
+  PUBLIC
+    "/Users/rhys/Code/ros2/humble/ros2-mavros/install/mavros_msgs/include"
+)
 
 add_library(mavros_plugins SHARED
   # [[[cog:
