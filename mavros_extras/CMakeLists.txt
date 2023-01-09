@@ -175,9 +175,8 @@ ament_target_dependencies(mavros_extras
 )
 target_link_libraries(mavros_extras ${GeographicLib_LIBRARIES})
 rclcpp_components_register_node(mavros_extras PLUGIN "mavros::extras::ServoStatePublisher" EXECUTABLE servo_state_publisher)
-target_include_directories(mavros_extras_plugins
-  PUBLIC
-    "/Users/rhys/Code/ros2/humble/ros2-mavros/install/mavros_msgs/include"
+target_include_directories(mavros_extras
+  PUBLIC    "/Users/rhys/Code/ros2/humble/ros2-mavros/install/mavros_msgs/include"
 )
 
 # yaml-cpp is required for Jazzy and newer
