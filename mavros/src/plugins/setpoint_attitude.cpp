@@ -116,7 +116,6 @@ private:
   std::unique_ptr<SyncTwistThrust> sync_twist;
 
   bool reverse_thrust;
-  float normalized_thrust;
 
   /**
    * @brief Function to verify if the thrust values are normalized;
